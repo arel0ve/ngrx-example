@@ -1,0 +1,20 @@
+<div *ngIf="tutorials">
+  <h3>Tutorials:</h3>
+  <ul class="list-group list-group-flush">
+    <li @insertRemove class="list-group-item" *ngFor="let tutorial of tutorials | async; let i = index;">
+      <div class="row">
+        <div class="col-8">
+          <a [href]="tutorial.url">{{ tutorial.name }}</a>
+        </div>
+        <div class="col-4" style="text-align: center">
+          <button (click)="removeTutorial(i)">remove</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="border-right" style="text-align: right">
+    <!--<button (click)="shuffle()">shuffle</button>-->
+    <button (click)="regenerate()">regenerate</button>
+    <button (click)="clear()">clear</button>
+  </div>
+</div>
